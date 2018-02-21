@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 //Analog pins in use
 // 0 for bump sensor
+// 1 for temp sensor
 
 
 public class sprint2 {
@@ -64,7 +65,7 @@ public class sprint2 {
 						break;
 				case 4: runMotorindefinitely(myRobot);
 						break;
-				case 5: dipslayTemperature();
+				case 5: dipslayTemperature(myRobot);
 						break;
 				case 6: break;
 				default: System.out.println("Invalid choice, please try again");
@@ -124,7 +125,24 @@ public class sprint2 {
 	myRobot.runMotor(0, 0, 1, 0, 1);
 	}
 
-	static void dipslayTemperature(){
-		int a = 0;
+	//This fxn is not as simple as it would appear at first
+	//Keep in mind that  for analog sensors:
+	//sensor reading = slope * voltage + intercept or something like that
+	//in other words the temp sensor needs to be calibrated 
+	//In order to calculate the slope and Intercept, I need to know what the voltage will be at two different points
+	static void dipslayTemperature(RXTXRobot myRobot){
+		double slope = 0.0;
+		double intercept = 0.0; 
+		double sumTemps = 0.0;
+		double avgTemp = 0.0;
+		double measuredTemp = 0.0;
+		//To get the best temperature reading, it makes sense to take the average of a bunch (10) of readings
+			for(int i =0; i<10; i++){
+				myRobot.refreshAnalogPins();
+				sumTemps += myRobot.getAnalogPin(1).getValue();
+			}
+		avgTemp = sumTemps/10;
+		measuredTemp = (slope*avgTemp) + slope;
+		System.out.println("Temperature is "+ measuredTemp + " degrees celsius");
 	}
 }
