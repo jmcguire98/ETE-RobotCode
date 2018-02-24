@@ -26,8 +26,8 @@ public class sprint2 {
 		RXTXRobot myRobot = new ArduinoUno();
 
 		//setPort to a literalvalue per docu, I used the one for macs
-		//May have to change value, can check using ls /dev | grep usb
-		myRobot.setPort("/dev/tty.usbmodem411");
+		//Value is currently calibrated with my Mac
+		myRobot.setPort("/dev/cu.usbmodem1411");
 
 		//connect robot using prewrittenFunctionality
 		myRobot.connect();
