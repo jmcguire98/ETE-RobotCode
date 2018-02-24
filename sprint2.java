@@ -96,6 +96,18 @@ public class sprint2 {
 		//header for moveServo:
 		//public void moveServo(int servo, int position) where position is a number of degrees
 		myRobot.moveServo(0, angle);
+		int input = 1;
+		while (input != 0){
+			System.out.println("Enter 1 to return to original position, 0 to continue waiting");
+			input = kbScanner.nextInt();
+		}
+		//if negatives are handled
+		// myRobot.moveServo(0, -angle);
+
+		//Else just complete a rotation to return to original position
+		angle = angle % 360;
+		angle = 360 - angle;
+		myRobot.moveServo(0,angle);
 	}
 
 	static void moveForward(RXTXRobot myRobot) {
