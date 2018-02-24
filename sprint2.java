@@ -43,6 +43,7 @@ public class sprint2 {
 		//Attach the servo for the servo tests to pin 9 per documentation
 		//Only one servo should be necessary here.
 		myRobot.attachServo(0,9);
+		myRobot.attachServo(0,9);
 
 		//From documentation:
 			//Note that you do not have to call an attach() method for the ping sensors
@@ -71,7 +72,8 @@ public class sprint2 {
 						break;
 				case 6: displayOtherSensor(myRobot);
 						break;
-				case 7: System.exit(0);
+				case 7: myRobot.close();
+						System.exit(0);
 						break;
 				default: System.out.println("Invalid choice, please try again");
 						break;
