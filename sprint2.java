@@ -69,7 +69,10 @@ public class sprint2 {
 						break;
 				case 5: dipslayTemperature(myRobot);
 						break;
-				case 6: break;
+				case 6: displayOtherSensor(myRobot);
+						break;
+				case 7: System.exit(0);
+						break;
 				default: System.out.println("Invalid choice, please try again");
 						break;
 			}
@@ -83,7 +86,8 @@ public class sprint2 {
 		System.out.println("3. Read the distance from the ping sensor");
 		System.out.println("4. Run until the bump sensor is triggered");
 		System.out.println("5. Display a temperature reading");
-		System.out.println("6. Exit the program");
+		System.out.println("6. Display a reading from the other sensor")
+		System.out.println("7. Exit the program");
 	}
 	//angle in degrees
 	static void moveServoWrapper(Scanner kbScanner, RXTXRobot myRobot){
