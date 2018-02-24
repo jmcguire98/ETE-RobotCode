@@ -27,10 +27,11 @@ public class sprint2 {
 
 		//setPort to a literalvalue per docu, I used the one for macs
 		//Value is currently calibrated with my Mac
-		myRobot.setPort("/dev/cu.usbmodem1411");
+		myRobot.setPort("/dev/tty.usbmodem1411");
 
 		//connect robot using prewrittenFunctionality
 		myRobot.connect();
+		System.out.println("here");
 
 		//Attach the first DC motor to pin 5 per KNW documentation
 		//The 0 indicates that this is the first motor
