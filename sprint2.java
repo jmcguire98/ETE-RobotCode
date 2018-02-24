@@ -140,7 +140,7 @@ public class sprint2 {
 		System.out.println("Measurement is " + getCalibratedAnalogreading(0.0,0.0, myRobot) + " units");
 	}
 	//Called by othser display sensor fxns
-	static double getCalibratedAnalogreading (double slope, double intercept, RXTXRobot myRobot){
+	static double getCalibratedAnalogReading (double slope, double intercept, RXTXRobot myRobot){
 		double sumTemps = 0.0;
 		double avgTemp = 0.0;
 		double measurement = 0.0;
@@ -150,7 +150,7 @@ public class sprint2 {
 				sumTemps += myRobot.getAnalogPin(1).getValue();
 			}
 		avgTemp = sumTemps/10;
-		measurement = (slope*avgTemp) + slope;
+		measurement = (avgTemp - intercept)/(slope); //formula for temp calibration (avgtemp - intercept)/(slope)
 		return measurement;
 	}
 }
