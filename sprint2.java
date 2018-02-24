@@ -86,7 +86,7 @@ public class sprint2 {
 		System.out.println("3. Read the distance from the ping sensor");
 		System.out.println("4. Run until the bump sensor is triggered");
 		System.out.println("5. Display a temperature reading");
-		System.out.println("6. Display a reading from the other sensor")
+		System.out.println("6. Display a reading from the other sensor");
 		System.out.println("7. Exit the program");
 	}
 	//angle in degrees
@@ -98,16 +98,16 @@ public class sprint2 {
 		myRobot.moveServo(0, angle);
 		int input = 1;
 		while (input != 0){
-			System.out.println("Enter 1 to return to original position, 0 to continue waiting");
+			System.out.println("Enter 0 to return to original position, 1 to continue waiting");
 			input = kbScanner.nextInt();
 		}
 		//if negatives are handled
-		// myRobot.moveServo(0, -angle);
+		myRobot.moveServo(0, -angle);
 
-		//Else just complete a rotation to return to original position
+		/*//Else just complete a rotation to return to original position
 		angle = angle % 360;
 		angle = 360 - angle;
-		myRobot.moveServo(0,angle);
+		myRobot.moveServo(0,angle);*/
 	}
 
 	static void moveForward(RXTXRobot myRobot) {
@@ -149,11 +149,11 @@ public class sprint2 {
 	//in other words the temp sensor needs to be calibrated 
 	//In order to calculate the slope and Intercept, I need to know what the voltage will be at two different points
 	static void dipslayTemperature(RXTXRobot myRobot){
-		System.out.println("Temperature is " + getCalibratedAnalogreading(0.0,0.0, myRobot) + " degrees celsius");
+		System.out.println("Temperature is " + getCalibratedAnalogReading(0.0,0.0, myRobot) + " degrees celsius");
 	}
 	//This fxn is extremely similar to the temp fxn, just has placeholders until we calibrate/ deide which sensor we will use.
 	static void displayOtherSensor(RXTXRobot myRobot){
-		System.out.println("Measurement is " + getCalibratedAnalogreading(0.0,0.0, myRobot) + " units");
+		System.out.println("Measurement is " + getCalibratedAnalogReading(0.0,0.0, myRobot) + " units");
 	}
 	//Called by othser display sensor fxns
 	static double getCalibratedAnalogReading (double slope, double intercept, RXTXRobot myRobot){
