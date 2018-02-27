@@ -31,7 +31,6 @@ public class sprint2 {
 
 		//connect robot using prewrittenFunctionality
 		myRobot.connect();
-		System.out.println("here");
 
 		//Attach the first DC motor to pin 5 per KNW documentation
 		//The 0 indicates that this is the first motor
@@ -42,9 +41,7 @@ public class sprint2 {
 
 		//Attach the servo for the servo tests to pin 9 per documentation
 		//Only one servo should be necessary here.
-		myRobot.attachServo(0,9);
-		myRobot.attachServo(0,9);
-
+		myRobot.attachServo(RXTXRobot.SERVO1,9);
 		//From documentation:
 			//Note that you do not have to call an attach() method for the ping sensors
 
@@ -97,7 +94,7 @@ public class sprint2 {
 		int angle = kbScanner.nextInt();
 		//header for moveServo:
 		//public void moveServo(int servo, int position) where position is a number of degrees
-		myRobot.moveServo(0, angle);
+		myRobot.moveServo(RXTXRobot.SERVO1, angle);
 		int input = 1;
 		while (input != 0){
 			System.out.println("Enter 0 to return to original position, 1 to continue waiting");
@@ -134,12 +131,13 @@ public class sprint2 {
 	//until another function call
 	myRobot.runMotor(0, 150, 1, 150, 0);
 	int bumpVoltage = 0;
-		while (bumpVoltage < 550){ 
+		while (bumpVoltage > 500){ 
 		//took 550 for reading from code found on forums, 
 		//we will probably need to test what a more exact reading would be, but this might work
 			myRobot.refreshAnalogPins();
 			//getValue is necessary here as analogPin is a type
 			bumpVoltage = myRobot.getAnalogPin(2).getValue();
+			System.out.println(bumpVoltage);
 		}
 	//Call runMotor again to stop movement per documentation
 	myRobot.runMotor(0, 0, 1, 0, 1);
