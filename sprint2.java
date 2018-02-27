@@ -102,11 +102,7 @@ public class sprint2 {
 		}
 		//if negatives are handled
 		//myRobot.moveServo(0, -angle);
-
-		//Else just complete a rotation to return to original position
-		angle = angle % 360;
-		angle = 360 - angle;
-		myRobot.moveServo(0,angle);
+		myRobot.moveServo(0,90);
 	}
 
 	static void moveForward(RXTXRobot myRobot) {
