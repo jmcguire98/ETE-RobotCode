@@ -142,10 +142,9 @@ public class sprint2 {
 	//This fxn is not as simple as it would appear at first
 	//Keep in mind that  for analog sensors:
 	//sensor reading = slope * voltage + intercept or something like that
-	//in other words the temp sensor needs to be calibrated 
-	//In order to calculate the slope and Intercept, I need to know what the voltage will be at two different points
+	//Updated with most recent temp sensor calibration
 	static void dipslayTemperature(RXTXRobot myRobot){
-		System.out.println("Temperature is " + getCalibratedAnalogReading(0.0,0.0, myRobot) + " degrees celsius");
+		System.out.println("Temperature is " + getCalibratedAnalogReading(-9.17,804, myRobot) + " degrees celsius");
 	}
 	//This fxn is extremely similar to the temp fxn, just has placeholders until we calibrate/ deide which sensor we will use.
 	static void displayOtherSensor(RXTXRobot myRobot){
