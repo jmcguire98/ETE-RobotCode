@@ -111,7 +111,7 @@ public class sprint2 {
 		//public void runMotor(int motor1, int speed1, int motor2, int speed2, int time)
 		//we will have to play with speed/time to get to exactly 3 meters
 		//25000 is 25 seconds for clarity
-		myRobot.runMotor(0, 150, 1, 150, 25000);
+		myRobot.runMotor(0, 150, 1, 150, 6000);
 
 	}
 	static int readDistance(RXTXRobot myRobot){
@@ -126,7 +126,8 @@ public class sprint2 {
 	//again, speed could be faster, we will have to test. inputting 0 for time says run infinitely
 	//until another function call
 	myRobot.runMotor(0, 150, 1, 150, 0);
-	int bumpVoltage = 0;
+	//To make sure the first loop runs 
+	int bumpVoltage = 501;
 		while (bumpVoltage > 500){ 
 		//took 550 for reading from code found on forums, 
 		//we will probably need to test what a more exact reading would be, but this might work
