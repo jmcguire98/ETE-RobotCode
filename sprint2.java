@@ -33,7 +33,7 @@ public class sprint2 {
 
 		//setPort to a literalvalue per docu, I used the one for macs
 		//Value is currently calibrated with my Mac
-		myRobot.setPort("/dev/tty.usbmodem50");
+		myRobot.setPort("/dev/tty.usbmodem1411");
 
 		//connect robot using pre-writtenFunctionality
 		myRobot.connect();
@@ -141,7 +141,7 @@ public class sprint2 {
 		boolean gapFoundInit = false;
 		boolean gapFoundFin = false;
 		Scanner kbScanner = new Scanner(System.in);
-		/*//headers for runMotor are :
+		//headers for runMotor are :
 		//public void  runMotor(int motor, int speed, int time)
 		//public void runMotor(int motor1, int speed1, int motor2, int speed2, int time)
 		//we will have to play with speed/time to get to exactly 3 meters
@@ -173,32 +173,35 @@ public class sprint2 {
 				myRobot.runMotor(0, 119, 1, 123, 500);
 			else
 				reachedRamp = true;
-		}
+		}*/
 		//this command should tell the boom arm to raise then lower
+		// NOT LIFTING BOOM ARM FOR NOW
 		moveServoWrapper(kbScanner, myRobot);
 
 		//this command tells the robot to move away from the ramp
-		myRobot.runMotor(0, 0, 1, 130, 2300);
-		myRobot.runMotor(0, 119, 1, 123, 2500);*/
+		//myRobot.runMotor(0, 0, 1, 130, 2300);
+		//myRobot.runMotor(0, 119, 1, 123, 2500);
 		while(!gapFoundInit){
 			if((readDistance(myRobot,1) < 50))
-				myRobot.runMotor(0, 180, 1, 175, 70);
+				myRobot.runMotor(0, 230, 1, 180, 70);
 			else
 				gapFoundInit = true;
 
 		}
-		myRobot.runMotor(0, 0, 1, 140, 2250);
+		myRobot.runMotor(0, 0, 1, 140, 2200);
 		myRobot.runMotor(0, 119, 1, 123, 2500);
-		myRobot.runMotor(0, 0, 1, 140, 1950);
-		myRobot.runMotor(0, 119, 1, 123, 1050);
-		myRobot.runMotor(0, 130, 1, 0, 2250); // 160, 0
-		while(readDistance(myRobot) > 65)
-			myRobot.runMotor(0, 180, 1, 175, 80);
+		myRobot.runMotor(0, 0, 1, 140, 2200);
+		myRobot.runMotor(0, 119, 1, 123, 1200);
+		myRobot.runMotor(0, 130, 1, 0, 2450); // 160, 0
+		/*while(readDistance(myRobot) > 65)
+			myRobot.runMotor(0, 230, 1, 180, 80);*/
+		myRobot.runMotor(0, 120, 1, 135, 2000);
 		/*while(readDistance(myRobot) < 118)
 			myRobot.runMotor(0, -180, 1, -175, 80);*/
-		myRobot.runMotor(0, 130, 1, 0, 1850); // 160, 0
-		while((readDistance(myRobot,1) > 35))
-				myRobot.runMotor(0, 130, 1, 0, 70);
+		myRobot.runMotor(0, 130, 1, 0, 2650); // 160, 0
+		myRobot.runMotor(0, 210, 1, 196, 6000);
+		/*while((readDistance(myRobot,1) > 35))
+				myRobot.runMotor(0, 130, 1, 0, 70);*/
 
 		//myRobot.runMotor(0, 240, 1, 230, 2800);
 
